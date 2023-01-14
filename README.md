@@ -1,6 +1,6 @@
 # react-text-typing-animation
 
-This project allow to you to use text typing animation in reactjs
+This package allow to you to use text typing animation in reactjs
 
 ## Get stared
 
