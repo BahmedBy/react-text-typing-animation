@@ -15,6 +15,7 @@ or if you are using yarn:
 Let's start with simple example
 
 The code below will type `hello world` character after character
+
 ```js
 import './App.css';
 import TypingText from 'react-text-typing-animation'
