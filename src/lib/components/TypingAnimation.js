@@ -10,7 +10,7 @@ const blinkStyle=(speed)=>{
 
 export default function TypingText({
                                        text, className, order = 0, speed = 1,
-                                       sync = 0, dely = 0, reverse = false,
+                                       sync = 0, dely: delay = 0, reverse = false,
                                        loop = false,cursor='|',showCursorEnd=false,
                                        deleteSpeed,
                                    }) {
@@ -18,10 +18,10 @@ export default function TypingText({
     const [status, setStatus] = useState('wait')
     useEffect(() => {
         if ((order === sync.turn || order === 0)&&status==='wait')
-            if (dely !== 0)
+            if (delay !== 0)
                 setTimeout(() => {
                     setStatus('start')
-                }, dely)
+                }, delay)
             else
                 setStatus('start')
     }, [sync.turn])

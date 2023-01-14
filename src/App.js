@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import TypingText from "./lib";
 function App() {
   return (
     <div className="App">
-
+      <TypingText text="hello world"/>
     </div>
   );
 }

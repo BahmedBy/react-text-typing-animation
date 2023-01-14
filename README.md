@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# react-text-typing-animation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project allow to you to use text typing animation in reactjs
 
-## Available Scripts
+## Get stared
 
-In the project directory, you can run:
+to use it you should install npm package, you can run:
 
-### `npm start`
+### `npm i react-text-typing-animation`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+or if you are using yarn:
+### `yarn add react-text-typing-animation`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Examples
+Let's start with simple example
 
-### `npm test`
+The code below will type `hello world` character after character
+```js
+import './App.css';
+import TypingText from 'react-text-typing-animation'
+function App() {
+  const sync=useSyncAnimation()
+  return (
+    <div className="App">
+    <TypingText text={"hello world"} />
+    </div>
+  );
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+export default App;
 
-### `npm run build`
+```
+### `TypingText` Component
+ This is the main component who the responsible for typing animation 
+and have the flowing attributes:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ | Name          | Description                                                                                                                                                                         |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ | text          | the text you apply animation to it . if you want return to line use `\n`                                                                                                            |
+| className     | style of text, css class                                                                                                                                                            |
+| delay         | `number` represent the time waiting before start animation in `ms`                                                                                                                  |
+ | speed         | speed of Animation `default value 1` <br/>this repsent the gap time between typing two characters : `speed * 100ms`<br/>the highest value of speed get slower animation             |
+ | cursor        | cursor is the typing cursor `default value &#124;`                                                                                                                                  |                                                                                                                             |
+ | showCursorEnd | boolean attribute default value `false`<br/> if showCursorEnd is `true` cursor will stay disable in the end of animation                                                            |
+| reverse       | boolean attribute default value `false`<br/> if reverse is `true` `TypingText` component will start delete animation after the typing animation end                                 |
+| deleteSpeed   | default value is value of speed<br/>like speed this repsent the gap time between delete two characters : 'deleteSpeed * 100ms' <br/>the highest value of speed get slower animation |
+| loop          | boolean attribute default value false <br/> if loop is true the animation will start again every time is finished                                                                   |
+| sync          | `useSyncAnimation` hooks, ths used to synchronized multi animation                                                                                                                  |
+| order         | `number` attribute represent the order of execution                                                                                                                                 |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### useSyncAnimation() hooks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ useSyncAnimation () hooks use to synchronized many animation and make them execute one after one
+ 
+### Example 
+```js
+    ...
+    const sync=useSyncAnimation();
+    ...
+    <TypingText text={"first animation"} order={0} sync={sync}/>
+    <TypingText text={"second animation"} order={1} sync={sync}/>
+    ...
+```
 
-### `npm run eject`
+The code above will make second animation start after first animation end
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+useSyncAnimation execute animations on base of them  order, it's started by 0 than 1 , 2 ...
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Note:
+   
+- don't make gap between orders
+- don't make loop=true when you use useSyncAnimation hooks
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
