@@ -1,6 +1,6 @@
 # react-text-typing-animation
 
-This project allow to you to use text typing animation in reactjs
+This package allow to you to use text typing animation in reactjs
 
 ## Get stared
 
@@ -12,9 +12,9 @@ or if you are using yarn:
 ### `yarn add react-text-typing-animation`
 
 ### Examples
-Let's start with simple example
+Let's start with a simple example
 
-The code below will type `hello world` character after character
+The code below will type `hello world`  characters one after another
 
 ```js
 import './App.css';
@@ -39,7 +39,7 @@ and have the flowing attributes:
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
  | text          | the text you apply animation to it . if you want return to line use `\n`                                                                                                            |
 | className     | style of text, css class                                                                                                                                                            |
-| delay         | `number` represent the time waiting before start animation in `ms`                                                                                                                  |
+| delay         | `number` represent the time to wait before the animation starts in `ms`                                                                                                             |
  | speed         | speed of Animation `default value 1` <br/>this repsent the gap time between typing two characters : `speed * 100ms`<br/>the highest value of speed get slower animation             |
  | cursor        | cursor is the typing cursor `default value &#124;`                                                                                                                                  |                                                                                                                             |
  | showCursorEnd | boolean attribute default value `false`<br/> if showCursorEnd is `true` cursor will stay disable in the end of animation                                                            |
