@@ -20,7 +20,7 @@ The code below will type `hello world`  characters one after another
 import './App.css';
 import TypingText from 'react-text-typing-animation'
 function App() {
-  const sync=useSyncAnimation()
+  
   return (
     <div className="App">
     <TypingText text={"hello world"} />
